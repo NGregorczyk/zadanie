@@ -1,0 +1,454 @@
+public class MainZad1 {-----------------------------------------------------------------------------------------------------------------
+
+
+    public static void main(String[] args) {
+
+        for (int i = 2; i < 100; i++) {
+            if (liczbaPierwsza(i)) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+
+   public static boolean
+           liczbaPierwsza(int liczba){
+        if(liczba>1){
+
+            if(liczba > 2 && liczba % 2 == 0) return false;
+            if(liczba > 3 && liczba % 3 == 0) return false;
+            for(int x = 5;x*x<=liczba;x+=6){
+                if(liczba % x == 0)
+                    return false;
+                if(liczba % (x+2) == 0)
+                    return false;
+            }
+            return true;
+        }
+        else
+            return false;
+    }
+
+
+}------------------------------------------------------------------------------------------------------------------
+public class MainZad2 {
+    public static void main(String[] args) {
+        int ilosc = 0;
+        int liczba = 2;
+
+        while (ilosc < 30) {
+            if (liczbaPierwsza(liczba)) {
+                System.out.print(liczba + ", ");
+                ilosc++;
+            }
+            liczba++;
+        }
+    }
+
+    public static boolean
+    liczbaPierwsza(int liczba){
+        if(liczba>1){
+
+            if(liczba > 2 && liczba % 2 == 0) return false;
+            if(liczba > 3 && liczba % 3 == 0) return false;
+            for(int x = 5;x*x<=liczba;x+=6){
+                if(liczba % x == 0)
+                    return false;
+                if(liczba % (x+2) == 0)
+                    return false;
+            }
+            return true;
+        }
+        else
+            return false;
+    }
+
+}------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class MainZad3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Podaj liczbe ");
+        int number = scanner.nextInt();
+
+        int iloscCzynnikow = czynnikiPierwsze(number);
+
+        System.out.println( iloscCzynnikow);
+    }
+
+    public static int czynnikiPierwsze(int liczba) {
+        int ilosc = 0;
+
+        for (int i = 2; i <= liczba; i++) {
+            if (liczba % i == 0 && liczbaPierwsza(i)) {
+                ilosc++;
+                while (liczba % i == 0) {
+                    liczba /= i;
+                }
+            }
+        }
+
+        return ilosc;
+    }
+
+    public static boolean
+    liczbaPierwsza(int liczba){
+        if(liczba>1){
+
+            if(liczba > 2 && liczba % 2 == 0) return false;
+            if(liczba > 3 && liczba % 3 == 0) return false;
+            for(int x = 5;x*x<=liczba;x+=6){
+                if(liczba % x == 0)
+                    return false;
+                if(liczba % (x+2) == 0)
+                    return false;
+            }
+            return true;
+        }
+        else
+            return false;
+    }
+
+}------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+    public class MainZad4 {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.print("Podaj liczbe ");
+            int liczba = scanner.nextInt();
+
+            if (polpierwsza(liczba)) {
+                System.out.println("TAK");
+            } else {
+                System.out.println("NIE");
+            }
+        }
+
+        private static boolean polpierwsza(int liczba) {
+            int ilosc = 0;
+            for (int i = 2; ilosc < 2 && i * i <= liczba; i++) {
+                while (liczba % i == 0) {
+                    liczba /= i;
+                    ilosc++;
+                }
+            }
+
+            if (liczba > 1) {
+                ilosc++;
+            }
+
+            return ilosc == 2;
+        }
+    }------------------------------------------------------------------------------------------------------------------
+ import java.util.Scanner;
+
+    public class MainZad5 {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.print("Podaj liczbe");
+            int liczba = scanner.nextInt();
+
+            System.out.println( rozneCzynniki(liczba));
+        }
+
+        private static int rozneCzynniki(int liczba) {
+            int ilosc = 0;
+            int ostatni = 0;
+
+            for (int i = 2; i <= liczba; i++) {
+                while (liczba % i == 0) {
+                    if (liczbaPierwsza(i) && i != ostatni) {
+                        ilosc++;
+                        ostatni = i;
+                    }
+                    liczba /= i;
+                }
+            }
+
+            return ilosc;
+        }
+
+        public static boolean
+        liczbaPierwsza(int liczba){
+            if(liczba>1){
+
+                if(liczba > 2 && liczba % 2 == 0) return false;
+                if(liczba > 3 && liczba % 3 == 0) return false;
+                for(int x = 5;x*x<=liczba;x+=6){
+                    if(liczba % x == 0)
+                        return false;
+                    if(liczba % (x+2) == 0)
+                        return false;
+                }
+                return true;
+            }
+            else
+                return false;
+        }
+
+}------------------------------------------------------------------------------------------------------------------
+
+    import java.util.Scanner;
+
+    public class MainZad6 {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.print("Podaj liczbe");
+            int liczba = scanner.nextInt();
+
+            System.out.println(najmniejsza(liczba));
+        }
+
+        private static int najmniejsza(int liczba) {
+            while (true) {
+                liczba++;
+                if (liczbaPierwsza(liczba)) {
+                    return liczba;
+                }
+            }
+        }
+
+        public static boolean
+        liczbaPierwsza(int liczba){
+            if(liczba>1){
+
+                if(liczba > 2 && liczba % 2 == 0) return false;
+                if(liczba > 3 && liczba % 3 == 0) return false;
+                for(int x = 5;x*x<=liczba;x+=6){
+                    if(liczba % x == 0)
+                        return false;
+                    if(liczba % (x+2) == 0)
+                        return false;
+                }
+                return true;
+            }
+            else
+                return false;
+        }
+    }------------------------------------------------------------------------------------------------------------------
+
+public class MainZad7 {
+    public static void main(String[] args) {
+        int ilosc = 0;
+        int liczba = 2;
+
+        while (ilosc < 4) {
+            if (doskonaler(liczba)) {
+                System.out.println(liczba);
+                ilosc++;
+            }
+            liczba++;
+        }
+    }
+
+    private static boolean doskonaler(int liczba) {
+        int y = 1;
+
+        
+        for (int i = 2; i <= Math.sqrt(liczba); i++) {
+            if (liczba % i == 0) {
+                y += i;
+                if (i != liczba / i) {
+                    y += liczba / i;
+                }
+            }
+        }
+
+        return y == liczba;
+    }
+}------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class MainZad8 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Podaj liczbę");
+        int liczba = scanner.nextInt();
+
+        System.out.println("Czynniki pierwsze liczby " + liczba + ":");
+
+        czynniki(liczba);
+    }
+
+    
+    private static void czynniki(int liczba) {
+        while (liczba % 2 == 0) {
+            System.out.println(2);
+            liczba /= 2;
+        }
+
+        for (int i = 3; i * i <= liczba; i += 2) {
+            while (liczba % i == 0 && liczbaPierwsza(i)) {
+                System.out.println(i);
+                liczba /= i;
+            }
+            while (liczba % (i + 2) == 0 && liczbaPierwsza(i + 2)) {
+                System.out.println(i + 2);
+                liczba /= i + 2;
+            }
+        }
+
+        if (liczba > 2 && liczbaPierwsza(liczba)) {
+            System.out.println(liczba);
+        }
+    }
+
+    public static boolean
+    liczbaPierwsza(int liczba){
+        if(liczba>1){
+
+            if(liczba > 2 && liczba % 2 == 0) return false;
+            if(liczba > 3 && liczba % 3 == 0) return false;
+            for(int x = 5;x*x<=liczba;x+=6){
+                if(liczba % x == 0)
+                    return false;
+                if(liczba % (x+2) == 0)
+                    return false;
+            }
+            return true;
+        }
+        else
+            return false;
+    }
+}------------------------------------------------------------------------------------------------------------------
+
+public class MainZad9 {
+    public static void main(String[] args) {
+        int ilosc = 0;
+        int liczba = 220;
+
+
+
+        while (ilosc < 3) {
+            int liczba1 = zaprzyjaznione(liczba);
+
+            if (liczba1 > liczba && dzielniki(liczba) == liczba1 && dzielniki(liczba1) == liczba) {
+                System.out.println(  liczba + ", " + liczba1 );
+                ilosc++;
+            }
+
+            liczba++;
+        }
+    }
+
+
+
+    private static int dzielniki(int liczba) {
+        int j = 1;
+
+        for (int i = 2; i <= liczba / 2; i++) {
+            if (liczba % i == 0) {
+                j += i;
+            }
+        }
+
+        return j;
+    }
+
+    private static int zaprzyjaznione(int liczba) {
+        return dzielniki(liczba);
+    }
+}------------------------------------------------------------------------------------------------------------------
+public class MainZad10  {
+    public static void main(String[] args) {
+        int ilosc = 0;
+        int p = 2;
+
+        while (ilosc < 5) {
+            long mer = (1 << p) - 1;
+
+            if (liczbaPierwsza(mer)) {
+                long doskonale = (1 << (p - 1)) * mer;
+                System.out.println(doskonale);
+                ilosc++;
+            }
+
+            p++;
+        }
+    }
+    public static boolean
+    liczbaPierwsza(long liczba){
+        if(liczba>1){
+
+            if(liczba > 2 && liczba % 2 == 0) return false;
+            if(liczba > 3 && liczba % 3 == 0) return false;
+            for(int x = 5;x*x<=liczba;x+=6){
+                if(liczba % x == 0)
+                    return false;
+                if(liczba % (x+2) == 0)
+                    return false;
+            }
+            return true;
+        }
+        else
+            return false;
+    }
+
+}------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class MainZad11 {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj parzystą liczbę z zakresu od 4 do 100");
+
+        int evenNumber = scanner.nextInt();
+        scanner.close();
+
+        if (evenNumber < 4 || evenNumber > 100 || evenNumber % 2 != 0) {
+            System.out.println("zla liczba");
+        } else {
+            int[] result = znajdzLiczbyGoldbacha(evenNumber);
+            if (result != null) {
+                System.out.println(" " + evenNumber + " = " + result[0] + " + " + result[1]);
+            }
+        }
+    }
+
+    public static int[] znajdzLiczbyGoldbacha(int evenNumber) {
+        for (int i = 2; i <= evenNumber / 2; i++) {
+            if (liczbaPierwsza(i) && liczbaPierwsza(evenNumber - i)) {
+                int[] result = {i, evenNumber - i};
+                return result;
+            }
+        }
+        return null;
+    }
+
+    public static boolean
+    liczbaPierwsza(int liczba){
+        if(liczba>1){
+
+            if(liczba > 2 && liczba % 2 == 0) return false;
+            if(liczba > 3 && liczba % 3 == 0) return false;
+            for(int x = 5;x*x<=liczba;x+=6){
+                if(liczba % x == 0)
+                    return false;
+                if(liczba % (x+2) == 0)
+                    return false;
+            }
+            return true;
+        }
+        else
+            return false;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
